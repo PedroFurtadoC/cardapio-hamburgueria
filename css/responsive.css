@@ -1,7 +1,6 @@
 /* responsive.css: Responsividade para diferentes tamanhos de telas */
 
 /* Dispositivos Pequenos (até 600px) */
-
 @media (max-width: 600px) {
 
     /* Header */
@@ -10,7 +9,7 @@
     }
 
     .logo-image {
-        max-width: 150px;
+        max-width: 140px;
     }
 
     /* Cards de Categoria */
@@ -20,45 +19,62 @@
     }
 
     .category-image {
-        height: 180px;
+        height: 160px;
     }
 
     .category-card h2 {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 
     /* Main Container */
     main {
-        padding: 10px;
+        padding: 8px;
     }
 
     /* Footer */
     .footer-content {
-        gap: 15px;
+        gap: 12px;
     }
 
     .footer-nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .social-links a img {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Formulário de Autenticação */
+    .auth-card {
+        padding: 20px;
+    }
+
+    .auth-card img.logo-image {
+        max-width: 80px;
+    }
+
+    .auth-card h2 {
+        font-size: 1.4em;
+    }
+
+    .btn-submit {
+        font-size: 1em;
+        padding: 10px;
     }
 }
 
 /* Dispositivos Médios (de 601px a 900px) */
-
 @media (min-width: 601px) and (max-width: 900px) {
 
     /* Header */
     .site-header {
-        padding: 20px 0;
+        padding: 18px 0;
     }
 
     .logo-image {
-        max-width: 180px;
+        max-width: 170px;
     }
 
     /* Cards de Categoria */
@@ -71,11 +87,11 @@
     }
 
     .category-image {
-        height: 220px;
+        height: 200px;
     }
 
     .category-card h2 {
-        font-size: 1.9em;
+        font-size: 1.8em;
     }
 
     /* Main Container */
@@ -85,26 +101,30 @@
 
     /* Footer */
     .footer-content {
-        gap: 20px;
+        gap: 18px;
     }
 
     .footer-nav {
-        gap: 15px;
+        gap: 12px;
     }
 
     .social-links a img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Formulário de Autenticação */
+    .auth-card {
+        padding: 30px;
     }
 }
 
 /* Dispositivos Grandes (de 901px a 1200px) */
-
 @media (min-width: 901px) and (max-width: 1200px) {
 
     /* Header */
     .site-header {
-        padding: 25px 0;
+        padding: 22px 0;
     }
 
     .logo-image {
@@ -125,7 +145,7 @@
     }
 
     .category-image {
-        height: 250px;
+        height: 240px;
     }
 
     .category-card h2 {
@@ -139,21 +159,25 @@
 
     /* Footer */
     .footer-content {
-        gap: 25px;
+        gap: 22px;
     }
 
     .footer-nav {
-        gap: 20px;
+        gap: 18px;
     }
 
     .social-links a img {
         width: 32px;
         height: 32px;
     }
+
+    /* Formulário de Autenticação */
+    .auth-card {
+        padding: 40px;
+    }
 }
 
 /* Telas Extra-Grandes (a partir de 1201px) */
-
 @media (min-width: 1201px) {
 
     /* Header */
@@ -193,15 +217,20 @@
 
     /* Footer */
     .footer-content {
-        gap: 30px;
+        gap: 28px;
     }
 
     .footer-nav {
-        gap: 30px;
+        gap: 25px;
     }
 
     .social-links a img {
         width: 36px;
         height: 36px;
+    }
+
+    /* Formulário de Autenticação */
+    .auth-card {
+        padding: 50px;
     }
 }
