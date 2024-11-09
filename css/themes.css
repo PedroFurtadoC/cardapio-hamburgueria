@@ -1,0 +1,16 @@
+/* themes.css: Define as cores principais */
+
+:root {
+    /* Cor de Fundo do Cardápio */
+    --cor-fundo: #121212;
+    /* Cor de fundo secundária */
+    --cor-fundo-secundario: #1C1C1C;
+    /* Dourado */
+    --cor-dourado: #FFD700;
+    /* Cor Dourado mais suave */
+    --cor-dourado-suave: #FFC700;
+    /* Cinza claro para texto */
+    --cor-texto: #E0E0E0;
+    /* Cinza Médio para áreas de contraste */
+    --cor-accent: #2E2E2E;
+}

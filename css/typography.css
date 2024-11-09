@@ -1,0 +1,47 @@
+/* typography.css: Estilos de tipografia para fontes, títulos, parágrafos */
+
+h1,
+h2,
+h3,
+.logo-wrapper {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+body,
+p,
+a,
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+p {
+    font-size: 1em;
+}
+
+.nav-link {
+    font-weight: 600;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ajustes de tamanho específicos */
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
