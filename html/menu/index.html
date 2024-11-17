@@ -1,0 +1,193 @@
+<!-- html\menu\index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royale Burger - Cardápio</title>
+
+    <!-- Fontes e estilos principais -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos globais e específicos -->
+    <link
+      rel="stylesheet"
+      href="/cardapio-hamburgueria/css/global-styles.css"
+    />
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/menu.css" />
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/cards.css" />
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/responsive.css" />
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-logo">
+            <a href="#" id="logout-trigger">
+                <img src="/cardapio-hamburgueria/images/logo.png" alt="Royale Burger Logo" class="logo-image" />
+            </a>
+        </div>
+        <div class="header-info">
+            <span id="mesa-info">Mesa: Carregando...</span>
+        </div>
+    </header>
+
+    <!-- Carrinho -->
+    <div class="cart-button-container">
+      <a href="/cardapio-hamburgueria/html/menu/cart.html" class="cart-button">
+        <img
+          src="/cardapio-hamburgueria/images/cart-icon.png"
+          alt="Carrinho"
+          width="24"
+          height="24"
+        />
+        <span>Carrinho</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </a>
+    </div>
+
+    <!-- Categorias -->
+    <main class="categories-container">
+        <!-- Hambúrgueres -->
+        <div class="category-card">
+            <a href="/cardapio-hamburgueria/api/menu/categories/burgers.php?categoria_id=1">
+                <img src="/cardapio-hamburgueria/images/categories/burger.jpg" alt="Hambúrgueres" class="category-image" />
+                <h2>Hambúrgueres</h2>
+            </a>
+        </div>
+
+        <!-- Entradas -->
+        <div class="category-card">
+            <a href="/cardapio-hamburgueria/api/menu/categories/appetizers.php?categoria_id=2">
+                <img src="/cardapio-hamburgueria/images/categories/appetizers.jpg" alt="Entradas" class="category-image" />
+                <h2>Entradas</h2>
+            </a>
+        </div>
+
+        <!-- Sobremesas -->
+        <div class="category-card">
+            <a href="/cardapio-hamburgueria/api/menu/categories/desserts.php?categoria_id=3">
+                <img src="/cardapio-hamburgueria/images/categories/desserts.jpg" alt="Sobremesas" class="category-image" />
+                <h2>Sobremesas</h2>
+            </a>
+        </div>
+
+        <!-- Bebidas -->
+        <div class="category-card">
+            <a href="/cardapio-hamburgueria/api/menu/categories/drinks.php?categoria_id=4">
+                <img src="/cardapio-hamburgueria/images/categories/drinks.jpg" alt="Bebidas" class="category-image" />
+                <h2>Bebidas</h2>
+            </a>
+        </div>
+
+        <!-- Favoritos -->
+        <div class="category-card">
+            <a href="/cardapio-hamburgueria/api/menu/categories/favorites.php?categoria_id=5">
+                <img src="/cardapio-hamburgueria/images/categories/favorites.jpg" alt="Favoritos" class="category-image" />
+                <h2>Favoritos</h2>
+            </a>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/cardapio-hamburgueria/images/logo.png" alt="Royale Burger Logo" class="footer-logo-image" />
+            </div>
+            <p>&copy; 2024 Royale Burger. Todos os direitos reservados.</p>
+
+            <!-- Links de navegação do footer -->
+            <nav class="footer-nav">
+                <a href="#">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </nav>
+
+            <!-- Ícones de redes sociais -->
+            <div class="footer-social-media">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="/cardapio-hamburgueria/images/facebook-icon.png" alt="Facebook" class="social-icon" />
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="/cardapio-hamburgueria/images/instagram-icon.png" alt="Instagram" class="social-icon" />
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <img src="/cardapio-hamburgueria/images/twitter-icon.png" alt="Twitter" class="social-icon" />
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/cardapio-hamburgueria/js/logout.js"></script>
+    <script>
+      /**
+       * Atualiza o número de itens no carrinho.
+       */
+      function atualizarCarrinho() {
+        fetch("/cardapio-hamburgueria/api/menu/cart_count.php")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Erro ao carregar o carrinho.");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            document.getElementById("cart-count").textContent = data.count || 0;
+          })
+          .catch(() => {
+            document.getElementById("cart-count").textContent = "0";
+          });
+      }
+
+      /**
+       * Confirma o logout do usuário.
+       */
+      function confirmarLogout() {
+        return confirm("Tem certeza de que deseja sair?");
+      }
+
+      /**
+       * Carrega o número da mesa para exibição no menu.
+       */
+      function carregarMesa() {
+        fetch("/cardapio-hamburgueria/api/auth/session_info.php")
+          .then((response) => {
+            if (!response.ok) {
+              console.error("Erro ao carregar a mesa. Resposta HTTP não OK.");
+              throw new Error("Erro ao carregar a mesa.");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const mesaInfo = document.getElementById("mesa-info");
+            if (data.mesa && data.mesa !== "Não definida") {
+              mesaInfo.textContent = `Mesa: ${data.mesa}`;
+            } else {
+              console.warn("Mesa não definida na resposta do servidor.");
+              mesaInfo.textContent = "Mesa: Não definida";
+            }
+          })
+          .catch((error) => {
+            console.error("Erro no carregamento da mesa:", error);
+            document.getElementById("mesa-info").textContent =
+              "Mesa: Não definida";
+          });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        atualizarCarrinho();
+        carregarMesa();
+      });
+    </script>
+  </body>
+</html>

@@ -1,14 +1,7 @@
 <?php
-// Iniciar sessão para verificar autenticação, se necessário
-session_start();
+// index.php
+require_once __DIR__ . '/includes/session.php'; // Valida a autenticação do usuário
 
-// Verificar se o usuário está logado
-if (isset($_SESSION['user_id'])) {
-    // Redirecionar para o menu principal (cardápio) se estiver logado
-    header("Location: html/menu.html");
-    exit();
-} else {
-    // Se o usuário não estiver logado, redirecionar para a página de login
-    header("Location: html/login.html");
-    exit();
-}
+// Redireciona o usuário para a página principal do cardápio
+header('Location: /cardapio-hamburgueria/html/menu/index.html');
+exit();
