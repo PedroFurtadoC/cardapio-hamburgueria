@@ -1,4 +1,4 @@
-/* auth-styles.css */
+/* auth-styles.css: Estilos para as telas de Login, Cadastro e Esqueceu a Senha */
 
 /* Estilos globais para a página de autenticação */
 .auth-body {
@@ -7,28 +7,28 @@
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-color: var(--cor-fundo);
-    font-family: 'Poppins', sans-serif;
-    color: var(--cor-texto);
 }
 
-/* Contêiner do formulário de autenticação */
+/* Container centralizado para o card de autenticação */
 .auth-container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0 10px;
+    /* Margem interna para telas menores */
 }
 
 /* Estilos principais do card de autenticação */
 .auth-card {
     width: 100%;
     max-width: 400px;
-    background-color: var(--cor-fundo-secundario);
+    background-color: var(--cor-accent);
     padding: 40px 25px;
     border-radius: 12px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
+    transition: transform 0.3s;
 }
 
 .auth-card img.logo-image {
@@ -40,10 +40,10 @@
     color: var(--cor-dourado);
     font-weight: 700;
     font-size: 1.8em;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-/* Estilos dos campos do formulário */
+/* Estilos dos campos de entrada */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -57,17 +57,17 @@
     font-size: 1em;
 }
 
+/* Estilos para inputs */
 .form-group input {
     width: 100%;
     padding: 12px;
     font-size: 1em;
     border: 1px solid var(--cor-dourado);
-    /* Borda dourada sempre */
     border-radius: 8px;
-    background-color: var(--cor-fundo-secundario);
+    background-color: var(--cor-accent);
     color: var(--cor-texto);
     outline: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .form-group input::placeholder {
@@ -76,6 +76,7 @@
 
 .form-group input:focus {
     background-color: #2b2b2b;
+    border-color: var(--cor-dourado);
 }
 
 /* Estilo do botão de envio */
@@ -97,7 +98,7 @@
     transform: scale(1.02);
 }
 
-/* Link de navegação entre login e cadastro */
+/* Links para navegação entre páginas de autenticação */
 .auth-link {
     margin-top: 15px;
     font-size: 0.9em;
@@ -112,48 +113,4 @@
 
 .auth-link a:hover {
     color: #FFEE93;
-}
-
-/* Responsividade para diferentes tamanhos de telas */
-@media (max-width: 600px) {
-    .auth-card {
-        padding: 25px 15px;
-    }
-
-    .auth-card img.logo-image {
-        max-width: 250px;
-    }
-
-    .auth-card h2 {
-        font-size: 1.5em;
-    }
-
-    .btn-submit {
-        font-size: 1em;
-        padding: 10px;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-    .auth-card {
-        padding: 30px 20px;
-    }
-
-    .auth-card img.logo-image {
-        max-width: 250px;
-    }
-
-    .auth-card h2 {
-        font-size: 1.7em;
-    }
-}
-
-@media (min-width: 901px) {
-    .auth-card {
-        padding: 40px 25px;
-    }
-
-    .auth-card img.logo-image {
-        max-width: 250px;
-    }
 }
