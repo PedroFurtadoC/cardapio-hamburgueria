@@ -14,36 +14,7 @@
 
     <!-- Estilos globais e específicos para autenticação -->
     <link rel="stylesheet" href="/cardapio-hamburgueria/css/global-styles.css">
-    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css">
-
-    <!-- Estilos internos específicos para o campo de seleção -->
-    <style>
-        /* Estilos para o campo select */
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            font-size: 1em;
-            color: var(--cor-texto);
-            background-color: var(--cor-accent);
-            border: 1px solid var(--cor-dourado);
-            border-radius: 8px;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFD700" d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .form-group select:focus {
-            background-color: #2b2b2b;
-            border-color: var(--cor-dourado);
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css?v=1.1">
 </head>
 
 <body class="auth-body">
@@ -52,6 +23,11 @@
             <!-- Logo da empresa -->
             <img src="/cardapio-hamburgueria/images/logo.png" alt="Royale Burger Logo" class="logo-image mb-3">
             <h2>Área do Funcionário</h2>
+
+            <!-- Mensagem de erro de credenciais -->
+            <div id="error-message" class="text-danger text-center mb-3" style="display: none;">
+                Credenciais inválidas. Verifique e tente novamente.
+            </div>
 
             <!-- Formulário de Login -->
             <form action="/cardapio-hamburgueria/api/auth/login.php" method="POST">
@@ -76,17 +52,12 @@
                     </select>
                 </div>
 
-                <!-- Campo de seleção para mesa específica (inicialmente oculto) -->
+                <!-- Campo de seleção para mesa específica -->
                 <div class="form-group" id="mesa-container" style="display: none;">
                     <label for="mesa">Selecione a Mesa</label>
                     <select id="mesa" name="mesa" required>
                         <!-- As opções de mesa serão geradas dinamicamente aqui -->
                     </select>
-                </div>
-
-                <!-- Mensagem de erro -->
-                <div id="error-message" class="text-danger text-center mb-3" style="display: none;">
-                    Usuário, senha ou mesa incorretos.
                 </div>
 
                 <!-- Botão de Login -->
@@ -96,7 +67,7 @@
             <!-- Links para cadastro e recuperação de senha -->
             <div class="auth-link mt-3">
                 <a href="/cardapio-hamburgueria/html/auth/register.html">Cadastrar-se</a> |
-                <a href="/cardapio-hamburgueria/html/auth/forgot_password.html">Esqueceu a senha?</a>
+                <a href="/cardapio-hamburgueria/api/auth/forgot_password.php">Esqueceu a senha?</a>
             </div>
         </div>
     </div>
@@ -104,7 +75,7 @@
     <!-- Script do Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script para manipulação de seleção de mesas -->
+    <!-- Script para manipulação de seleção de mesas e mensagem de erro -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const intervaloMesa = document.getElementById("intervalo-mesa");
@@ -149,7 +120,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const errorMessage = document.getElementById("error-message");
 
-            if (urlParams.has("error") && urlParams.get("error") === "true") {
+            if (urlParams.has("error") && urlParams.get("error") === "invalid_credentials") {
                 errorMessage.style.display = "block";
             }
         });

@@ -1,49 +1,58 @@
-/* auth-styles.css: Estilos para as telas de Login, Cadastro e Esqueceu a Senha */
+/* css\auth-styles.css -> Estilos para as telas de Autenticação (Login, Cadastro, Esqueceu a Senha, Redefinição de Senha */
 
-/* Estilos globais para a página de autenticação */
+/* Corpo da página */
 .auth-body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    background-color: var(--cor-fundo);
 }
 
-/* Container centralizado para o card de autenticação */
+/* Contêiner centralizado */
 .auth-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 10px;
-    /* Margem interna para telas menores */
+    padding: 0 15px;
 }
 
-/* Estilos principais do card de autenticação */
+/* Card de autenticação */
 .auth-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     background-color: var(--cor-accent);
-    padding: 40px 25px;
-    border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 45px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo */
 .auth-card img.logo-image {
-    max-width: 110px;
-    margin-bottom: 15px;
+    max-width: 250px;
+    margin-bottom: 20px;
 }
 
+/* Título */
 .auth-card h2 {
-    color: var(--cor-dourado);
+    font-size: 2rem;
     font-weight: 700;
-    font-size: 1.8em;
-    margin-bottom: 10px;
+    color: var(--cor-dourado);
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-/* Estilos dos campos de entrada */
+/* Formulário */
+
+/* Estilos gerais do formulário */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -51,46 +60,70 @@
 
 .form-group label {
     display: block;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--cor-texto);
     margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 1em;
 }
 
-/* Estilos para inputs */
-.form-group input {
+/* Estilos para inputs e selects */
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 12px;
-    font-size: 1em;
+    font-size: 1rem;
     border: 1px solid var(--cor-dourado);
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: var(--cor-accent);
     color: var(--cor-texto);
     outline: none;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.form-group input::placeholder {
+/* Placeholder e opções do select */
+.form-group input::placeholder,
+.form-group select option {
     color: rgba(224, 224, 224, 0.8);
 }
 
-.form-group input:focus {
+/* Foco em inputs e selects */
+.form-group input:focus,
+.form-group select:focus {
     background-color: #2b2b2b;
     border-color: var(--cor-dourado);
 }
 
-/* Estilo do botão de envio */
+/* Estilos específicos para selects */
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFD700" d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    cursor: pointer;
+}
+
+/* Foco específico para selects */
+.form-group select:focus {
+    outline: none;
+}
+
+/* Botão principal */
 .btn-submit {
+    display: inline-block;
     width: 100%;
     padding: 12px;
-    font-size: 1.1em;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--cor-fundo);
     background-color: var(--cor-dourado);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
 }
 
 .btn-submit:hover {
@@ -98,19 +131,41 @@
     transform: scale(1.02);
 }
 
-/* Links para navegação entre páginas de autenticação */
+/* Links */
 .auth-link {
     margin-top: 15px;
-    font-size: 0.9em;
+    font-size: 1rem;
     color: var(--cor-texto);
 }
 
 .auth-link a {
-    color: #FFD700;
+    color: var(--cor-dourado);
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .auth-link a:hover {
     color: #FFEE93;
+}
+
+/* Mensagens de feedback */
+.text-success,
+.text-danger {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.text-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.text-danger {
+    background-color: #f8d7da;
+    color: #721c24;
 }
