@@ -1,0 +1,54 @@
+/* about.css - Estilos para a página Sobre */
+
+/* Container principal da página */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+}
+
+/* Estilos para o conteúdo do cabeçalho da página */
+.about-content {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para o título principal do cabeçalho */
+.about-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-dourado);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Estilos para os parágrafos do cabeçalho */
+.about-content p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    margin-bottom: 20px;
+}
+
+/* Destaques no texto na cor dourada */
+.about-content strong {
+    color: var(--cor-dourado);
+}
+
+/* Estilos para as imagens */
+.about-image img {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre a imagem */
+.about-image img:hover {
+    transform: scale(1.05);
+}
