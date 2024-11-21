@@ -1,7 +1,8 @@
 <?php
+
 // api/auth/forgot_password.php
 
-require_once '../../includes/db.php'; // Inclui a conexão com o banco de dados
+require_once '../../includes/db.php'; 
 
 // Inicializa variáveis para feedback
 $statusMessage = '';
@@ -84,5 +85,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
-
 </html>

@@ -18,5 +18,4 @@ if (!isset($_SESSION['mesa']) || empty($_SESSION['mesa'])) {
 
 // Retorna a mesa definida
 echo json_encode(['mesa' => (int) $_SESSION['mesa']]); // Converte para número para evitar inconsistências
-
 ?>

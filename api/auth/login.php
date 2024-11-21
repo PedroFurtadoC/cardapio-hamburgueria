@@ -3,7 +3,7 @@
 // api/auth/login.php
 
 session_start();
-require_once '../../includes/db.php'; // Inclui a conexão com o banco de dados
+require_once '../../includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);

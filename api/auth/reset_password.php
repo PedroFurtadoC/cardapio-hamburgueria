@@ -1,9 +1,14 @@
 <?php
+
+// api\auth\reset_password.php
+
 require_once '../../includes/db.php';
 
+// Inicializa variáveis para armazenar o e-mail e mensagens de status
 $email = '';
 $statusMessage = '';
 
+//Manipulação de solicitações GET para exibir o formulário de redefinição de senha, verificando se o e-mail foi fornecido.
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['email'])) {
         $email = htmlspecialchars($_GET['email']);
@@ -26,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 
+//Manipulação de solicitações POST para processar a redefinição de senha, verificando se as senhas coincidem, valida o e-mail e atualiza a senha no BD
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $senha = $_POST['senha'];
@@ -37,13 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
+        // Criptografa a nova senha
         $hashedSenha = password_hash($senha, PASSWORD_DEFAULT);
 
+        // Atualiza a senha no banco de dados para o e-mail fornecido
         $stmt = $pdo->prepare("UPDATE tb_usuario SET senha = :senha WHERE email = :email");
         $stmt->bindParam(':senha', $hashedSenha, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
+        // Verifica se a atualização foi bem-sucedida
         if ($stmt->rowCount() > 0) {
             header("Location: /cardapio-hamburgueria/html/auth/login.html?status=password_reset_success");
         } else {
@@ -51,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit();
     } catch (PDOException $e) {
+        // Registra erros no servidor e redireciona com mensagem de erro genérica
         error_log("Erro ao redefinir senha: " . $e->getMessage());
         header("Location: /cardapio-hamburgueria/api/auth/reset_password.php?email=" . urlencode($email) . "&status=server_error");
         exit();
@@ -78,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="auth-body">
     <div class="auth-container">
         <div class="auth-card">
+
+            <!-- Logo -->
             <img src="/cardapio-hamburgueria/images/logo.png" alt="Royale Burger Logo" class="logo-image mb-4">
             <h2>Redefinir Senha</h2>
 
@@ -105,5 +117,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
-
 </html>
