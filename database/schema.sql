@@ -7,7 +7,6 @@
 -- DROP DATABASE royale_burger; -- Remove o banco de dados inteiro
 
 -- Caso deseje apenas apagar as tabelas:
--- DROP TABLE IF EXISTS tb_metrica;
 -- DROP TABLE IF EXISTS tb_pedido_item;
 -- DROP TABLE IF EXISTS tb_pedido;
 -- DROP TABLE IF EXISTS tb_itens_carrinho;
@@ -83,6 +82,7 @@ CREATE TABLE tb_itens_carrinho (
     usuario_id INT NOT NULL,
     item_id INT NOT NULL,
     quantidade INT DEFAULT 1,
+    observacao TEXT DEFAULT NULL
     data_adicionado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES tb_usuario(id) ON DELETE CASCADE,
     FOREIGN KEY (item_id) REFERENCES tb_item(id) ON DELETE CASCADE
@@ -97,7 +97,6 @@ CREATE TABLE tb_pedido (
     usuario_id INT NOT NULL,
     mesa INT NOT NULL,
     status ENUM('pendente', 'concluido', 'cancelado') DEFAULT 'pendente',
-    forma_pagamento ENUM('dinheiro', 'cartao', 'pix') DEFAULT NULL,
     total DECIMAL(10, 2) NOT NULL,
     data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES tb_usuario(id) ON DELETE CASCADE
@@ -114,62 +113,7 @@ CREATE TABLE tb_pedido_item (
     quantidade INT DEFAULT 1,
     preco_unitario DECIMAL(10, 2) NOT NULL,
     preco_total DECIMAL(10, 2) GENERATED ALWAYS AS (quantidade * preco_unitario) STORED,
+    observacao TEXT DEFAULT NULL
     FOREIGN KEY (pedido_id) REFERENCES tb_pedido(id) ON DELETE CASCADE,
     FOREIGN KEY (item_id) REFERENCES tb_item(id) ON DELETE CASCADE
 );
-
--- ===========================================
--- Tabela de Métricas
--- ===========================================
-
-CREATE TABLE tb_metrica (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
-    total_vendas DECIMAL(10, 2) DEFAULT 0,
-    total_itens INT DEFAULT 0,
-    mesas_atendidas INT DEFAULT 0,
-    FOREIGN KEY (usuario_id) REFERENCES tb_usuario(id) ON DELETE CASCADE
-);
-
--- ===========================================
--- Views e Procedures (Extras para Métricas)
--- ===========================================
-
--- View para Total de Vendas por Funcionário
-CREATE VIEW vw_total_vendas_funcionario AS
-SELECT 
-    u.id AS usuario_id,
-    u.nome AS funcionario,
-    COUNT(p.id) AS total_pedidos,
-    SUM(p.total) AS total_vendas
-FROM 
-    tb_usuario u
-LEFT JOIN 
-    tb_pedido p ON u.id = p.usuario_id
-GROUP BY 
-    u.id, u.nome;
-
--- Procedure para Atualizar Métricas
-DELIMITER $$
-CREATE PROCEDURE atualizar_metricas()
-BEGIN
-    UPDATE tb_metrica m
-    SET 
-        m.total_vendas = (
-            SELECT SUM(p.total) 
-            FROM tb_pedido p 
-            WHERE p.usuario_id = m.usuario_id
-        ),
-        m.total_itens = (
-            SELECT COUNT(pi.id) 
-            FROM tb_pedido_item pi 
-            JOIN tb_pedido p ON p.id = pi.pedido_id
-            WHERE p.usuario_id = m.usuario_id
-        ),
-        m.mesas_atendidas = (
-            SELECT COUNT(DISTINCT p.mesa) 
-            FROM tb_pedido p 
-            WHERE p.usuario_id = m.usuario_id
-        );
-END$$
-DELIMITER ;
