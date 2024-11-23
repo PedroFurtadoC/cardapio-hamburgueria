@@ -1,12 +1,8 @@
 -- database\schema.sql
 
--- ===========================================
--- Limpando o banco de dados (opcional, use com cautela)
--- ===========================================
+-- DROP DATABASE royale_burger; -- Remoção do banco de dados inteiro
 
--- DROP DATABASE royale_burger; -- Remove o banco de dados inteiro
-
--- Caso deseje apenas apagar as tabelas:
+-- Remoção de tabelas:
 -- DROP TABLE IF EXISTS tb_pedido_item;
 -- DROP TABLE IF EXISTS tb_pedido;
 -- DROP TABLE IF EXISTS tb_itens_carrinho;
