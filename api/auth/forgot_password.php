@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Estilos globais e específicos para autenticação -->
     <link rel="stylesheet" href="/cardapio-hamburgueria/css/global-styles.css">
-    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css?v=1.1">
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css">
 </head>
 
 <body class="auth-body">
