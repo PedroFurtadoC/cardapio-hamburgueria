@@ -49,6 +49,7 @@ CREATE TABLE tb_item (
     categoria_id INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT NOT NULL,
+    descricao_detalhada TEXT DEFAULT NULL,
     preco DECIMAL(10, 2) NOT NULL,
     imagem VARCHAR(255) NOT NULL,
     disponivel BOOLEAN DEFAULT TRUE,
