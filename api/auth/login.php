@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mesa = $_POST['mesa'];
 
     try {
-        // Verifica se o usuário existe
+        // Verifica se o usuário existe no banco de dados
         $stmt = $pdo->prepare("SELECT id, nome, senha FROM tb_usuario WHERE email = :email");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -27,26 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $loginStmt->bindParam(':mesa', $mesa, PDO::PARAM_INT);
             $loginStmt->execute();
 
-            // Recupera o ID do login recém-criado
-            $loginId = $pdo->lastInsertId();
-
-            // Define as variáveis de sessão necessárias para o logout
+            // Define variáveis de sessão para gerenciar o login
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['mesa'] = $mesa; // Define a mesa selecionada
-            $_SESSION['login_id'] = $loginId;
+            $_SESSION['mesa'] = $mesa;
+            $_SESSION['login_id'] = $pdo->lastInsertId();
 
             // Redireciona para o menu principal
             header('Location: /cardapio-hamburgueria/html/menu/index.html');
             exit();
         } else {
-            // Redireciona de volta ao login com mensagem de erro
+            // Redireciona para o login com erro de credenciais
             header('Location: /cardapio-hamburgueria/html/auth/login.html?error=invalid_credentials');
             exit();
         }
     } catch (PDOException $e) {
         error_log("Erro no login: " . $e->getMessage());
+        // Redireciona para o login com erro genérico
         header('Location: /cardapio-hamburgueria/html/auth/login.html?error=server_error');
         exit();
     }
 }
+?>

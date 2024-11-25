@@ -67,64 +67,13 @@
             <!-- Links para cadastro e recuperação de senha -->
             <div class="auth-link mt-3">
                 <a href="/cardapio-hamburgueria/html/auth/register.html">Cadastrar-se</a> |
-                <a href="/cardapio-hamburgueria/api/auth/forgot_password.php">Esqueceu a senha?</a>
+                <a href="/cardapio-hamburgueria/html/auth/forgot_password.html">Esqueceu a senha?</a>
             </div>
         </div>
     </div>
 
-    <!-- Script do Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- Script para manipulação de seleção de mesas e mensagem de erro -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const intervaloMesa = document.getElementById("intervalo-mesa");
-            const mesaContainer = document.getElementById("mesa-container");
-            const mesaSelect = document.getElementById("mesa");
-
-            intervaloMesa.addEventListener("change", function () {
-                const selectedInterval = intervaloMesa.value;
-                mesaSelect.innerHTML = ""; // Limpa as opções anteriores
-
-                let start = 0;
-                let end = 0;
-
-                // Define o intervalo de acordo com a seleção
-                if (selectedInterval === "1-5") {
-                    start = 1;
-                    end = 5;
-                } else if (selectedInterval === "6-10") {
-                    start = 6;
-                    end = 10;
-                } else if (selectedInterval === "11-15") {
-                    start = 11;
-                    end = 15;
-                } else if (selectedInterval === "16-20") {
-                    start = 16;
-                    end = 20;
-                }
-
-                // Popula as opções de mesa de acordo com o intervalo selecionado
-                for (let i = start; i <= end; i++) {
-                    const option = document.createElement("option");
-                    option.value = i;
-                    option.textContent = `Mesa ${i}`;
-                    mesaSelect.appendChild(option);
-                }
-
-                // Exibe o campo de seleção de mesa
-                mesaContainer.style.display = "block";
-            });
-
-            // Verifica se o parâmetro de erro está presente na URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const errorMessage = document.getElementById("error-message");
-
-            if (urlParams.has("error") && urlParams.get("error") === "invalid_credentials") {
-                errorMessage.style.display = "block";
-            }
-        });
-    </script>
+    <script src="/cardapio-hamburgueria/js/auth/login.js"></script>
 </body>
 
 </html>

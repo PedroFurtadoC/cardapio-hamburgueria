@@ -1,4 +1,4 @@
-/* css\auth-styles.css -> Estilos para as telas de Autenticação (Login, Cadastro, Esqueceu a Senha, Redefinição de Senha */
+/* css\auth-styles.css -> Estilos para as telas de Autenticação (Login, Cadastro, Esqueceu a Senha, Redefinição de Senha) */
 
 /* Corpo da página */
 .auth-body {
@@ -27,7 +27,7 @@
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-card:hover {
@@ -51,8 +51,6 @@
 }
 
 /* Formulário */
-
-/* Estilos gerais do formulário */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -66,24 +64,23 @@
     margin-bottom: 8px;
 }
 
-/* Estilos para inputs e selects */
+/* Inputs e selects */
 .form-group input,
 .form-group select {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
-    border: 1px solid var(--cor-dourado);
-    border-radius: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
     background-color: var(--cor-accent);
     color: var(--cor-texto);
     outline: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-/* Placeholder e opções do select */
-.form-group input::placeholder,
-.form-group select option {
-    color: rgba(224, 224, 224, 0.8);
+/* Placeholder */
+.form-group input::placeholder {
+    color: var(--cor-placeholder);
 }
 
 /* Foco em inputs e selects */
@@ -91,23 +88,7 @@
 .form-group select:focus {
     background-color: #2b2b2b;
     border-color: var(--cor-dourado);
-}
-
-/* Estilos específicos para selects */
-.form-group select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFD700" d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 12px;
-    cursor: pointer;
-}
-
-/* Foco específico para selects */
-.form-group select:focus {
-    outline: none;
+    color: var(--cor-texto);
 }
 
 /* Botão principal */
@@ -127,7 +108,7 @@
 }
 
 .btn-submit:hover {
-    background-color: #FFC700;
+    background-color: var(--cor-hover-dourado);
     transform: scale(1.02);
 }
 
@@ -161,11 +142,11 @@
 }
 
 .text-success {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: rgba(40, 167, 69, 0.2);
+    color: var(--cor-sucesso);
 }
 
 .text-danger {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: rgba(255, 65, 54, 0.2);
+    color: var(--cor-erro);
 }

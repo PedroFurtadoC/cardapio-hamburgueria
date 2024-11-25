@@ -14,7 +14,7 @@
 
     <!-- Estilos globais e específicos para autenticação -->
     <link rel="stylesheet" href="/cardapio-hamburgueria/css/global-styles.css">
-    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css?v1.1">
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/auth-styles.css">
 </head>
 
 <body class="auth-body">
@@ -24,8 +24,11 @@
             <img src="/cardapio-hamburgueria/images/logo.png" alt="Royale Burger Logo" class="logo-image mb-3">
             <h2>Cadastro de Funcionário</h2>
 
+            <!-- Mensagem de erro -->
+            <div id="error-message" class="text-danger text-center mb-3" style="display: none;"></div>
+
             <!-- Formulário de Cadastro -->
-            <form action="/cardapio-hamburgueria/api/auth/register.php" method="POST" onsubmit="return validateForm()">
+            <form action="/cardapio-hamburgueria/api/auth/register.php" method="POST" id="register-form">
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
@@ -55,25 +58,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function validateForm() {
-            const senha = document.getElementById("senha").value;
-            const confirmarSenha = document.getElementById("confirmar_senha").value;
-
-            if (senha !== confirmarSenha) {
-                alert("As senhas não coincidem. Tente novamente.");
-                return false;
-            }
-
-            if (senha.length < 8) {
-                alert("A senha deve ter no mínimo 8 caracteres.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
+    <script src="/cardapio-hamburgueria/js/auth/register.js"></script>
 </body>
 
 </html>

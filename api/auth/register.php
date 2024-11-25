@@ -1,6 +1,6 @@
 <?php
 
-// api\auth\register.php
+// api/auth/register.php
 
 require_once '../../includes/db.php';
 
@@ -31,11 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertStmt->bindParam(':senha', $senhaHash, PDO::PARAM_STR);
         $insertStmt->execute();
 
-        // Redireciona para a página de login
-        header('Location: /cardapio-hamburgueria/html/auth/login.html?success=true');
+        // Redireciona para a página de login com sucesso
+        header('Location: /cardapio-hamburgueria/html/auth/login.html?success=registered');
         exit();
     } catch (PDOException $e) {
-        echo "Erro ao cadastrar usuário: " . $e->getMessage();
+        error_log("Erro ao cadastrar usuário: " . $e->getMessage());
+        header('Location: /cardapio-hamburgueria/html/auth/register.html?error=server_error');
+        exit();
     }
 }
 ?>
