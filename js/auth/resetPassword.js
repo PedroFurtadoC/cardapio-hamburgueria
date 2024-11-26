@@ -1,4 +1,4 @@
-// js\auth\reset_password.js
+// js\auth\resetPassword.js
 
 document.addEventListener("DOMContentLoaded", function () {
   // Obtém os parâmetros da URL
