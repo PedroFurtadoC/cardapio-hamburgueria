@@ -1,0 +1,71 @@
+<!-- html\menu\order_summary.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo do Pedido - Royale Burger</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/global-styles.css">
+    <link rel="stylesheet" href="/cardapio-hamburgueria/css/responsive.css">
+
+    <!-- Estilos Internos -->
+    <style>
+        .summary-container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--cor-accent);
+            color: var(--cor-texto);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .summary-container h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--cor-dourado);
+            text-transform: uppercase;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .summary-container p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--cor-placeholder);
+        }
+
+        .summary-container .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--cor-dourado);
+            color: var(--cor-accent);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .summary-container .btn:hover {
+            background-color: var(--cor-hover-dourado);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="summary-container">
+        <!-- Frase de Confirmação -->
+        <h1>Pedido Confirmado!</h1>
+        <p>Seu pedido foi recebido e está sendo processado. Agradecemos pela preferência!</p>
+        <!-- Botão para retornar à página inicial -->
+        <a href="/cardapio-hamburgueria/html/menu/index.html" class="btn">Voltar ao Cardápio</a>
+    </main>
+</body>
+
+</html>

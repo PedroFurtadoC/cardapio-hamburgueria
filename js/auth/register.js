@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Verifica se as senhas coincidem
     if (senha !== confirmarSenha) {
-      event.preventDefault(); // Impede o envio do formulário
+      // Impede o envio do formulário
+      event.preventDefault();
       errorMessage.textContent = "As senhas não coincidem. Tente novamente.";
       errorMessage.style.display = "block";
       return false;
@@ -18,13 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Verifica o comprimento da senha
     if (senha.length < 8) {
-      event.preventDefault(); // Impede o envio do formulário
+      event.preventDefault();
       errorMessage.textContent = "A senha deve ter no mínimo 8 caracteres.";
       errorMessage.style.display = "block";
       return false;
     }
 
-    errorMessage.style.display = "none"; // Oculta mensagem de erro se tudo estiver correto
+    // Oculta mensagem de erro se tudo estiver correto
+    errorMessage.style.display = "none";
     return true;
   });
 

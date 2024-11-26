@@ -1,5 +1,7 @@
 <?php
+
 // includes/session.php
+
 session_start();
 
 // Verifica se o usuário está autenticado

@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert(result.message || "Erro ao realizar o logout.");
         }
       } catch (error) {
-        alert("Erro de comunicação com o servidor. Tente novamente.");
+        alert("Erro de comunicação com o servidor.");
         console.error("Erro:", error);
       }
     });

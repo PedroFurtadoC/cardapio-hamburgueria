@@ -1,0 +1,169 @@
+/* css/categories.css -> Estilos para itens dentro de categorias do cardápio */
+
+/* Contêiner principal dos itens da categoria */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 15px;
+    background-color: var(--cor-fundo);
+}
+
+/* Título da categoria */
+.category-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--cor-dourado);
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.3;
+}
+
+/* Mensagem de ausência de itens */
+.category-empty {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--cor-placeholder);
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Descrição geral da categoria */
+.category-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--cor-texto);
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 1;
+}
+
+/* Grid dos itens */
+.items-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Card de cada item */
+.item-card {
+    max-width: 350px;
+    background-color: var(--cor-accent);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Imagem do item */
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--cor-dourado);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.item-card:hover img {
+    filter: brightness(0.9);
+    transform: scale(1.03);
+}
+
+/* Corpo do card */
+.item-card .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    background-color: var(--cor-accent);
+}
+
+/* Nome do item */
+.item-card .card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Descrição do item */
+.item-card .card-text {
+    font-size: 1rem;
+    color: var(--cor-texto);
+    line-height: 1.6;
+    opacity: 0.95;
+    text-align: center;
+}
+
+/* Detalhes adicionais do item */
+.detailed-description {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+    line-height: 1.5;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+/* Preço do item */
+.item-card .card-price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cor-sucesso);
+    margin-top: 15px;
+}
+
+/* Botão de adicionar ao carrinho */
+.item-card .btn-add-to-cart {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #121212;
+    background-color: var(--cor-dourado);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.item-card .btn-add-to-cart:hover {
+    background-color: var(--cor-hover-dourado);
+    transform: scale(1.05);
+}
+
+/* Botão de "Mostrar Mais/Menos" */
+.item-card .show-more-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cor-dourado);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.item-card .show-more-btn:hover {
+    color: var(--cor-hover-dourado);
+}
+
+/* Mensagem de pedidos */
+.card-orders {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-texto);
+    text-align: center;
+    margin-top: 10px;
+    opacity: 0.85;
+}

@@ -1,0 +1,36 @@
+/* css\header.css -> Estilos para Header */
+
+/* Espaçamento geral entre o header e o restante do conteúdo */
+.site-header {
+    background-color: var(--cor-accent);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Alinhamento do logo */
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.logo-image {
+    height: auto;
+}
+
+/* Mesa Info */
+.header-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#mesa-info {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cor-dourado);
+}

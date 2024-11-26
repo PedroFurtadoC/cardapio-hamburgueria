@@ -1,9 +1,9 @@
-/* responsive.css: Responsividade para diferentes tamanhos de telas */
+/* css\responsive.css -> Responsividade para diferentes tamanhos de telas */
 
 /* Dispositivos Pequenos (até 600px) */
 @media (max-width: 600px) {
 
-    /* Header */
+    /* Header: Ajuste do padding e logo para dispositivos pequenos */
     .site-header {
         padding: 15px 0;
     }
@@ -12,7 +12,7 @@
         max-width: 140px;
     }
 
-    /* Cards de Categoria */
+    /* Cards de Categoria: Redimensionamento e ajuste de margens */
     .category-card {
         max-width: 100%;
         margin: 0 auto;
@@ -26,12 +26,12 @@
         font-size: 1.5em;
     }
 
-    /* Main Container */
+    /* Main Container: Ajuste de padding para um layout compacto */
     main {
         padding: 8px;
     }
 
-    /* Footer */
+    /* Footer: Organização em coluna e espaçamentos ajustados */
     .footer-content {
         gap: 12px;
     }
@@ -46,29 +46,35 @@
         height: 24px;
     }
 
-    /* Formulário de Autenticação */
+    /* Formulário de Autenticação: Compactação do card e tamanho do logo */
     .auth-card {
-        padding: 20px;
+        padding: 20px 10px;
+        max-width: 100%;
     }
 
     .auth-card img.logo-image {
-        max-width: 80px;
+        max-width: 70px;
     }
 
     .auth-card h2 {
         font-size: 1.4em;
     }
 
-    .btn-submit {
+    .form-group input {
+        padding: 12px;
         font-size: 1em;
+    }
+
+    .btn-submit {
         padding: 10px;
+        font-size: 1em;
     }
 }
 
 /* Dispositivos Médios (de 601px a 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
 
-    /* Header */
+    /* Header: Ajuste do padding e logo para dispositivos médios */
     .site-header {
         padding: 18px 0;
     }
@@ -77,7 +83,7 @@
         max-width: 170px;
     }
 
-    /* Cards de Categoria */
+    /* Cards de Categoria: Espaçamento entre cards */
     .categories-container {
         gap: 30px;
     }
@@ -94,12 +100,12 @@
         font-size: 1.8em;
     }
 
-    /* Main Container */
+    /* Main Container: Margens adequadas para tamanhos médios */
     main {
         padding: 15px;
     }
 
-    /* Footer */
+    /* Footer: Espaçamento entre os itens */
     .footer-content {
         gap: 18px;
     }
@@ -113,16 +119,35 @@
         height: 28px;
     }
 
-    /* Formulário de Autenticação */
+    /* Formulário de Autenticação: Ajustes de padding no card e tamanho do logo */
     .auth-card {
-        padding: 30px;
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+
+    .auth-card img.logo-image {
+        max-width: 80px;
+    }
+
+    .auth-card h2 {
+        font-size: 1.5em;
+    }
+
+    .form-group input {
+        padding: 14px;
+        font-size: 1em;
+    }
+
+    .btn-submit {
+        font-size: 1em;
+        padding: 12px;
     }
 }
 
 /* Dispositivos Grandes (de 901px a 1200px) */
 @media (min-width: 901px) and (max-width: 1200px) {
 
-    /* Header */
+    /* Header: Espaçamento adicional para visualização em telas maiores */
     .site-header {
         padding: 22px 0;
     }
@@ -131,7 +156,7 @@
         max-width: 200px;
     }
 
-    /* Cards de Categoria */
+    /* Cards de Categoria: Distribuição em duas colunas */
     .categories-container {
         gap: 40px;
         flex-direction: row;
@@ -152,12 +177,12 @@
         font-size: 2em;
     }
 
-    /* Main Container */
+    /* Main Container: Margens ajustadas para maior espaçamento */
     main {
         padding: 20px;
     }
 
-    /* Footer */
+    /* Footer: Ajuste para espaçamento entre os itens */
     .footer-content {
         gap: 22px;
     }
@@ -171,7 +196,7 @@
         height: 32px;
     }
 
-    /* Formulário de Autenticação */
+    /* Formulário de Autenticação: Card com padding ampliado */
     .auth-card {
         padding: 40px;
     }
@@ -180,7 +205,7 @@
 /* Telas Extra-Grandes (a partir de 1201px) */
 @media (min-width: 1201px) {
 
-    /* Header */
+    /* Header: Padding ajustado para telas muito grandes */
     .site-header {
         padding: 30px 0;
     }
@@ -189,7 +214,7 @@
         max-width: 220px;
     }
 
-    /* Cards de Categoria */
+    /* Cards de Categoria: Distribuição ampla com espaçamento aumentado */
     .categories-container {
         gap: 50px;
         flex-direction: row;
@@ -210,12 +235,12 @@
         font-size: 2.2em;
     }
 
-    /* Main Container */
+    /* Main Container: Amplo padding para visualização em telas grandes */
     main {
         padding: 30px;
     }
 
-    /* Footer */
+    /* Footer: Espaçamento amplo para layouts maiores */
     .footer-content {
         gap: 28px;
     }
@@ -229,8 +254,4 @@
         height: 36px;
     }
 
-    /* Formulário de Autenticação */
-    .auth-card {
-        padding: 50px;
-    }
 }

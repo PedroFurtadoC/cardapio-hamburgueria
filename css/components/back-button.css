@@ -1,0 +1,45 @@
+/* css\components\back-button.css -> Estilos para o botão Voltar */
+
+/* Contêiner do botão "Voltar" */
+#back-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Botão "Voltar" */
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-accent);
+  color: var(--cor-texto);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Ícone no botão "Voltar" */
+.back-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover e foco no botão "Voltar" */
+.back-button:hover {
+  background-color: #333;
+  color: var(--cor-dourado);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}

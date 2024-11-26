@@ -1,0 +1,87 @@
+/* css\footer.css -> Estilos para o Footer */
+
+/* Estilo principal do container do footer, garantindo alinhamento e aparência */
+.site-footer {
+    background-color: var(--cor-accent);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Estilos do conteúdo interno do footer, centralizado e espaçado */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo do footer: tamanho, efeito ao passar o mouse */
+.footer-logo img {
+    max-width: 250px;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para textos simples no footer, como o copyright */
+.site-footer p {
+    font-size: 1rem;
+    color: var(--cor-texto);
+    opacity: 0.85;
+    margin: 8px 0;
+}
+
+/* Navegação do footer: layout flexível e espaçamento */
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Links da navegação do footer: cor, espaçamento e efeitos */
+.footer-nav a {
+    color: var(--cor-texto);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--cor-dourado);
+}
+
+/* Contêiner de redes sociais no footer, com espaçamento uniforme */
+.footer-social-media {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Links das redes sociais: transição e tamanho dos ícones */
+.footer-social-media a {
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Ícones das redes sociais: tamanho fixo e ajuste de brilho */
+.footer-social-media a img {
+    width: 36px;
+    height: 36px;
+    filter: brightness(0.8);
+}
+
+/* Efeito ao passar o mouse sobre os ícones das redes sociais */
+.footer-social-media a:hover img {
+    transform: scale(1.2);
+    filter: brightness(1);
+}

@@ -1,0 +1,52 @@
+/* css\components\cart-button.css -> Estilos para o botão do carrinho */
+
+/* Contêiner do botão "Carrinho" */
+.cart-button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Botão do Carrinho */
+.cart-button {
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-accent);
+  color: var(--cor-texto);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Ícone no botão do Carrinho */
+.cart-button img {
+  margin-right: 8px;
+}
+
+/* Hover no botão do Carrinho */
+.cart-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Contador do Carrinho */
+.cart-count {
+  background-color: #ff4136;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+}
